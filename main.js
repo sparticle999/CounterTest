@@ -1,6 +1,24 @@
 var counter = 0;
 var counterps = 0;
 
+//Cooldowns On Buttons
+
+$(function() {
+	var basicCooldownExample = new Cooldown({
+		padding: 10,
+		buttons: $('.basic-cooldown-example button'),
+		length: 1,
+		autoSetupAll: true
+    });
+    
+    var customCooldownExample = new Cooldown({
+    	buttons: $('.custom-cooldown-example button'),
+    	length: 1
+    });
+    customCooldownExample.autoSetup(customCooldownExample.buttons[0], {color: 'lime'})
+    .autoSetup(customCooldownExample.buttons[1], {length: 0.5});
+});
+
 function increaseCounterSpeed(number){
 	counterps += number;
 	document.getElementById("counterps").innerHTML = counterps;
